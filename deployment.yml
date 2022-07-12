@@ -1,0 +1,28 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: avagen-api-dev
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: avagen-api-dev
+          image: 107469482445.dkr.ecr.us-east-2.amazonaws.com/avageneye-api-dev:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              value: AKIARSBNOFHGZT42YKWH
+            - name: AWS_SECRET_ACCESS_KEY
+              value: 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
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev
+ 
