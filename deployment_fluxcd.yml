@@ -16,6 +16,7 @@ spec:
       labels:
         app: web
     spec:
+      serviceAccountName: avagen-api-dev-sa
       containers:
       - name: avagen-api-dev
         image: "107469482445.dkr.ecr.us-east-2.amazonaws.com/avageneye-api-dev:latest"
